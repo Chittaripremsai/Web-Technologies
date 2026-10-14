@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+}
+
+.box{
+    border: solid 2px greenyellow;
+    height: 150px;
+    width: 150px;
+    background: cyan;
+
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-bottom: 50px;
+}
+.square{
+    border: solid 2px red;
+    height: 150px;
+    width: 150px;
+    background: blue;
+
+    margin: auto;
+}
+.textbox{
+
+    border: solid 2px green;
+    height: 150px; /* total-height = h+ mt+mb+ bb+ bt+ pt+ pd */
+    width: 150px;  /* total-width = w+ ml+mr+ bl+ br+ pl+ pr */
+    background: orange;
+    margin: auto;
+    padding-top: 75px;
+    padding-left: 75px;
+    
+
+}

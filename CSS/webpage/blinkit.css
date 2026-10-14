@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.header{
+    border: none;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+}
+.header .logo{
+    border: none;
+    width: 20%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+}
+.location{
+    border: none;
+    width: 20%;
+    height:100%;
+    text-align: center;
+    padding-top: 25px;
+}
+.search{
+    border: none;
+    width: 60%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search input{
+    width: 90%;
+    height: 50px;
+    border-radius:10px 10px 10px 10px;
+
+}
+.bt1{
+    border: none;
+    width: 18%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bt1 button{
+    width: 50%;
+    height: 70px;
+    border-radius:10px 10px 10px 10px;
+    font-size: large;
+    background: rgb(135, 179, 48);
+}
+.bt2{
+    border: none;
+    width: 20%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.bt2 button{
+    width: 50%;
+    height: 70px;
+    border-radius:10px 10px 10px 10px;
+    font-size: large;
+    background: rgb(10, 186, 10);
+}
+.col2{
+    border: solid 1px black;
+    width: 100%;
+    height: 40vh;
+    padding-left: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.col2 .c1,.c2,.c3,.c4{
+    border: solid 1px black;
+    width: 25%;
+    height: 80%;
+    border-radius:10px 10px 10px 10px;
+}

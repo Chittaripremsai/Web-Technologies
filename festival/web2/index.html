@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SHREE GANESHA | Digital Darshan</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080504;
+            color: #f7e4b2;
+            font-family: Georgia, "Times New Roman", serif;
+            overflow: hidden;
+        }
+
+        /* =========================================
+           INTRO SCREEN
+        ========================================= */
+
+        .intro {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(126, 70, 20, 0.20),
+                    #080504 55%,
+                    #020202 100%
+                );
+
+            transition: opacity 2s ease, visibility 2s ease;
+        }
+
+        .intro.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .intro-content {
+            text-align: center;
+            animation: introAppear 3s ease forwards;
+        }
+
+        .om {
+            font-size: 95px;
+            color: #d6a94c;
+
+            text-shadow:
+                0 0 10px rgba(255, 190, 70, .5),
+                0 0 30px rgba(255, 150, 20, .35),
+                0 0 70px rgba(255, 120, 10, .2);
+
+            animation: omGlow 3s ease-in-out infinite;
+        }
+
+        .intro-line {
+            width: 180px;
+            height: 1px;
+            margin: 25px auto;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #d6a94c,
+                transparent
+            );
+        }
+
+        .intro-text {
+            letter-spacing: 8px;
+            font-size: 13px;
+            color: #c9ae72;
+        }
+
+        .bells {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-around;
+
+            opacity: .25;
+            font-size: 30px;
+        }
+
+        /* =========================================
+           TEMPLE
+        ========================================= */
+
+        .temple {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.40),
+                    rgba(0,0,0,.70)
+                ),
+                radial-gradient(
+                    ellipse at center top,
+                    rgba(130, 72, 25, .25),
+                    transparent 55%
+                ),
+                #120806;
+
+            overflow: hidden;
+        }
+
+        /* =========================================
+           BACKGROUND LIGHT
+        ========================================= */
+
+        .temple-light {
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            left: 50%;
+            top: 35%;
+
+            transform: translate(-50%, -50%);
+
+            background: radial-gradient(
+                circle,
+                rgba(255, 170, 65, .22),
+                rgba(255, 120, 20, .08) 35%,
+                transparent 70%
+            );
+
+            filter: blur(20px);
+
+            animation: templeLight 5s ease-in-out infinite;
+        }
+
+        /* =========================================
+           TEMPLE ARCH
+        ========================================= */
+
+        .arch {
+            position: absolute;
+
+            left: 50%;
+            top: 6%;
+
+            width: min(650px, 90vw);
+            height: 88vh;
+
+            transform: translateX(-50%);
+
+            border: 8px solid #6d4324;
+            border-bottom: none;
+
+            border-radius: 350px 350px 0 0;
+
+            box-shadow:
+                inset 0 0 40px rgba(0,0,0,.9),
+                0 0 40px rgba(0,0,0,.7);
+        }
+
+        .arch-inner {
+            position: absolute;
+            inset: 25px;
+
+            border: 2px solid #9b6832;
+            border-bottom: none;
+
+            border-radius: 320px 320px 0 0;
+        }
+
+        /* =========================================
+           TEMPLE DOORS
+        ========================================= */
+
+        .doors {
+            position: absolute;
+            inset: 0;
+
+            z-index: 20;
+
+            pointer-events: none;
+        }
+
+        .door {
+            position: absolute;
+
+            top: 0;
+            width: 50%;
+            height: 100%;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    #21110b 0px,
+                    #3b1c0f 35px,
+                    #1c0d08 70px
+                );
+
+            border: 3px solid #6f4426;
+
+            transition: transform 3s cubic-bezier(.77,0,.18,1);
+        }
+
+        .door.left {
+            left: 0;
+            transform-origin: left center;
+        }
+
+        .door.right {
+            right: 0;
+            transform-origin: right center;
+        }
+
+        .doors.open .left {
+            transform: translateX(-100%);
+        }
+
+        .doors.open .right {
+            transform: translateX(100%);
+        }
+
+        /* Door decorations */
+
+        .door::after {
+            content: "ॐ";
+
+            position: absolute;
+
+            top: 45%;
+            font-size: 70px;
+
+            color: #c99542;
+
+            text-shadow:
+                0 0 20px rgba(255, 170, 60, .4);
+        }
+
+        .door.left::after {
+            right: 25px;
+        }
+
+        .door.right::after {
+            left: 25px;
+        }
+
+        /* =========================================
+           GANESHA AREA
+        ========================================= */
+
+        .ganesha-area {
+            position: absolute;
+
+            left: 50%;
+            top: 51%;
+
+            transform: translate(-50%, -50%);
+
+            width: min(470px, 75vw);
+            height: 620px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            z-index: 10;
+        }
+
+        .ganesha {
+            position: relative;
+
+            width: 330px;
+            height: 460px;
+
+            animation:
+                ganeshaAppear 3s ease 1.5s both,
+                divineFloat 5s ease-in-out 4s infinite;
+        }
+
+        /* =========================================
+           CODE-DRAWN GANESHA
+        ========================================= */
+
+        .head {
+            position: absolute;
+
+            width: 220px;
+            height: 210px;
+
+            left: 55px;
+            top: 25px;
+
+            background:
+                radial-gradient(
+                    circle at 40% 30%,
+                    #e99b53,
+                    #b85c2c 65%,
+                    #78351e
+                );
+
+            border-radius: 48% 48% 45% 45%;
+
+            box-shadow:
+                inset -15px -20px 30px rgba(75,20,10,.35),
+                0 15px 30px rgba(0,0,0,.5);
+        }
+
+        /* Ears */
+
+        .ear {
+            position: absolute;
+
+            width: 90px;
+            height: 125px;
+
+            top: 65px;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    #e69a52,
+                    #a84f28
+                );
+
+            z-index: -1;
+
+            border-radius: 70% 35% 70% 35%;
+        }
+
+        .ear.left {
+            left: -55px;
+            transform: rotate(-25deg);
+        }
+
+        .ear.right {
+            right: -55px;
+            transform: rotate(25deg) scaleX(-1);
+        }
+
+        /* Eyes */
+
+        .eye {
+            position: absolute;
+
+            top: 92px;
+
+            width: 34px;
+            height: 18px;
+
+            border-bottom: 4px solid #32130d;
+
+            border-radius: 50%;
+        }
+
+        .eye.left {
+            left: 62px;
+        }
+
+        .eye.right {
+            right: 62px;
+        }
+
+        /* Eyebrows */
+
+        .brow {
+            position: absolute;
+
+            top: 73px;
+
+            width: 55px;
+            height: 20px;
+
+            border-top: 5px solid #6d301a;
+
+            border-radius: 50%;
+        }
+
+        .brow.left {
+            left: 53px;
+            transform: rotate(-8deg);
+        }
+
+        .brow.right {
+            right: 53px;
+            transform: rotate(8deg);
+        }
+
+        /* Trunk */
+
+        .trunk {
+            position: absolute;
+
+            width: 72px;
+            height: 180px;
+
+            left: 74px;
+            top: 105px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #9c4723,
+                    #dc8341,
+                    #a94c25
+                );
+
+            border-radius: 40px 40px 55px 55px;
+
+            transform: rotate(4deg);
+
+            z-index: 5;
+
+            box-shadow:
+                inset -10px 0 15px rgba(70,20,10,.3);
+        }
+
+        .trunk::after {
+            content: "";
+
+            position: absolute;
+
+            width: 38px;
+            height: 50px;
+
+            bottom: -5px;
+            right: -5px;
+
+            border-right: 12px solid #8e3d20;
+            border-bottom: 12px solid #8e3d20;
+
+            border-radius: 0 0 35px 0;
+        }
+
+        /* Tusks */
+
+        .tusk {
+            position: absolute;
+
+            width: 42px;
+            height: 65px;
+
+            top: 160px;
+
+            background: #f5dfb0;
+
+            border-radius: 50%;
+
+            z-index: 6;
+        }
+
+        .tusk.left {
+            left: 52px;
+            transform: rotate(25deg);
+        }
+
+        .tusk.right {
+            right: 52px;
+            transform: rotate(-25deg);
+        }
+
+        /* Tilak */
+
+        .tilak {
+            position: absolute;
+
+            left: 50%;
+            top: 45px;
+
+            transform: translateX(-50%);
+
+            font-size: 28px;
+
+            color: #f3d48b;
+
+            z-index: 8;
+        }
+
+        /* Body */
+
+        .body {
+            position: absolute;
+
+            left: 42px;
+            top: 230px;
+
+            width: 245px;
+            height: 225px;
+
+            background:
+                radial-gradient(
+                    circle at 45% 20%,
+                    #df8845,
+                    #a84b25 70%
+                );
+
+            border-radius: 45% 45% 25% 25%;
+
+            box-shadow:
+                inset -20px -20px 30px rgba(60,20,10,.3);
+        }
+
+        /* Belly */
+
+        .belly {
+            position: absolute;
+
+            width: 170px;
+            height: 150px;
+
+            left: 38px;
+            top: 45px;
+
+            background:
+                radial-gradient(
+                    circle at 40% 30%,
+                    #edaa62,
+                    #bd6330
+                );
+
+            border-radius: 50%;
+        }
+
+        /* Arms */
+
+        .arm {
+            position: absolute;
+
+            width: 80px;
+            height: 145px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #873b20,
+                    #d87d3d
+                );
+
+            border-radius: 50px;
+
+            top: 275px;
+        }
+
+        .arm.left {
+            left: 0;
+            transform: rotate(28deg);
+        }
+
+        .arm.right {
+            right: 0;
+            transform: rotate(-28deg);
+        }
+
+        /* Crown */
+
+        .crown {
+            position: absolute;
+
+            width: 160px;
+            height: 75px;
+
+            left: 85px;
+            top: -15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f3d17a,
+                    #a96b1c,
+                    #eac15d
+                );
+
+            clip-path: polygon(
+                5% 100%,
+                15% 30%,
+                30% 55%,
+                50% 0,
+                70% 55%,
+                85% 30%,
+                95% 100%
+            );
+
+            z-index: 20;
+
+            filter:
+                drop-shadow(0 5px 10px rgba(0,0,0,.5));
+        }
+
+        /* Crown jewel */
+
+        .crown::after {
+            content: "";
+
+            position: absolute;
+
+            width: 18px;
+            height: 18px;
+
+            border-radius: 50%;
+
+            background: #fff0a5;
+
+            left: 71px;
+            top: 22px;
+
+            box-shadow:
+                0 0 15px #ffe29a;
+        }
+
+        /* =========================================
+           DIYA
+        ========================================= */
+
+        .diya {
+            position: absolute;
+
+            bottom: 25px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 90px;
+            height: 35px;
+
+            background:
+                linear-gradient(
+                    #d18a2c,
+                    #704015
+                );
+
+            border-radius: 0 0 50px 50px;
+
+            z-index: 30;
+        }
+
+        .flame {
+            position: absolute;
+
+            width: 22px;
+            height: 45px;
+
+            left: 50%;
+            top: -38px;
+
+            transform: translateX(-50%);
+
+            background:
+                radial-gradient(
+                    ellipse at center bottom,
+                    #fff4b0 5%,
+                    #ffb52d 45%,
+                    #d84b0d 75%,
+                    transparent 76%
+                );
+
+            border-radius: 50% 50% 50% 50%;
+
+            filter: blur(.5px);
+
+            animation: flame 1s ease-in-out infinite alternate;
+        }
+
+        /* =========================================
+           FLOWERS
+        ========================================= */
+
+        .flowers {
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 130px;
+
+            z-index: 25;
+
+            background:
+                radial-gradient(
+                    circle at 10% 70%,
+                    #b84a24 0 12px,
+                    transparent 13px
+                ),
+                radial-gradient(
+                    circle at 25% 85%,
+                    #d28b28 0 10px,
+                    transparent 11px
+                ),
+                radial-gradient(
+                    circle at 40% 75%,
+                    #bd5125 0 13px,
+                    transparent 14px
+                ),
+                radial-gradient(
+                    circle at 65% 80%,
+                    #d18b2a 0 11px,
+                    transparent 12px
+                ),
+                radial-gradient(
+                    circle at 85% 75%,
+                    #b94d26 0 14px,
+                    transparent 15px
+                );
+        }
+
+        /* =========================================
+           SMOKE
+        ========================================= */
+
+        .smoke {
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            bottom: 50px;
+
+            border-radius: 50%;
+
+            background: rgba(220,220,220,.035);
+
+            filter: blur(18px);
+
+            animation: smoke 8s ease-in-out infinite;
+        }
+
+        .smoke.one {
+            left: 40%;
+        }
+
+        .smoke.two {
+            left: 55%;
+            animation-delay: 3s;
+        }
+
+        /* =========================================
+           PARTICLES
+        ========================================= */
+
+        .particles {
+            position: absolute;
+            inset: 0;
+
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            border-radius: 50%;
+
+            background: #e4bd68;
+
+            box-shadow: 0 0 8px #d79d3b;
+
+            animation: particleFloat linear infinite;
+        }
+
+        .particle:nth-child(1) {
+            left: 12%;
+            top: 80%;
+            animation-duration: 8s;
+        }
+
+        .particle:nth-child(2) {
+            left: 25%;
+            top: 60%;
+            animation-duration: 10s;
+        }
+
+        .particle:nth-child(3) {
+            left: 80%;
+            top: 75%;
+            animation-duration: 7s;
+        }
+
+        .particle:nth-child(4) {
+            left: 70%;
+            top: 45%;
+            animation-duration: 11s;
+        }
+
+        .particle:nth-child(5) {
+            left: 50%;
+            top: 85%;
+            animation-duration: 9s;
+        }
+
+        .particle:nth-child(6) {
+            left: 90%;
+            top: 30%;
+            animation-duration: 8s;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .header {
+            position: absolute;
+
+            top: 35px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            text-align: center;
+
+            z-index: 40;
+
+            opacity: 0;
+
+            animation: headerAppear 2s ease 4s forwards;
+        }
+
+        .header-small {
+            font-size: 11px;
+
+            letter-spacing: 7px;
+
+            color: #c69a50;
+        }
+
+        .header h1 {
+            margin-top: 10px;
+
+            font-size: clamp(30px, 5vw, 55px);
+
+            letter-spacing: 8px;
+
+            color: #f1d18a;
+
+            font-weight: normal;
+
+            text-shadow:
+                0 3px 20px rgba(0,0,0,.8);
+        }
+
+        .header-line {
+            width: 100px;
+            height: 1px;
+
+            margin: 12px auto;
+
+            background: #b6873c;
+        }
+
+        /* =========================================
+           DARSHAN BUTTON
+        ========================================= */
+
+        .darshan {
+            position: absolute;
+
+            left: 50%;
+            bottom: 35px;
+
+            transform: translateX(-50%);
+
+            z-index: 50;
+
+            opacity: 0;
+
+            animation: headerAppear 2s ease 5s forwards;
+        }
+
+        .darshan button {
+            padding: 14px 35px;
+
+            background: rgba(35,18,8,.75);
+
+            color: #e8c77a;
+
+            border: 1px solid #9d7131;
+
+            font-family: Georgia, serif;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            cursor: pointer;
+
+            transition: .4s;
+        }
+
+        .darshan button:hover {
+            background: #a86a25;
+
+            color: #fff3ca;
+
+            box-shadow:
+                0 0 25px rgba(225,160,60,.35);
+
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+           ANIMATIONS
+        ========================================= */
+
+        @keyframes introAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes omGlow {
+
+            0%,100% {
+                opacity: .7;
+                text-shadow: 0 0 10px rgba(255,180,50,.3);
+            }
+
+            50% {
+                opacity: 1;
+                text-shadow:
+                    0 0 20px rgba(255,180,50,.7),
+                    0 0 60px rgba(255,140,20,.4);
+            }
+
+        }
+
+        @keyframes templeLight {
+
+            0%,100% {
+                opacity: .6;
+                transform: translate(-50%,-50%) scale(.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translate(-50%,-50%) scale(1.1);
+            }
+
+        }
+
+        @keyframes ganeshaAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(80px) scale(.8);
+                filter: brightness(.2);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: brightness(1);
+            }
+
+        }
+
+        @keyframes divineFloat {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+        @keyframes flame {
+
+            from {
+                transform: translateX(-50%) scale(.9) rotate(-3deg);
+            }
+
+            to {
+                transform: translateX(-50%) scale(1.1) rotate(3deg);
+            }
+
+        }
+
+        @keyframes smoke {
+
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(.5);
+            }
+
+            30% {
+                opacity: .5;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-300px) translateX(60px) scale(2);
+            }
+
+        }
+
+        @keyframes particleFloat {
+
+            0% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-500px);
+            }
+
+        }
+
+        @keyframes headerAppear {
+
+            from {
+                opacity: 0;
+                transform: translate(-50%, 15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media(max-width:600px) {
+
+            .om {
+                font-size: 70px;
+            }
+
+            .arch {
+                top: 10%;
+                height: 80vh;
+            }
+
+            .ganesha {
+                transform: scale(.72);
+            }
+
+            .header h1 {
+                letter-spacing: 5px;
+            }
+
+            .header-small {
+                letter-spacing: 4px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         INTRO
+    ========================================= -->
+
+    <section class="intro" id="intro">
+
+        <div class="bells">
+            <span>🔔</span>
+            <span>🔔</span>
+            <span>🔔</span>
+            <span>🔔</span>
+        </div>
+
+        <div class="intro-content">
+
+            <div class="om">ॐ</div>
+
+            <div class="intro-line"></div>
+
+            <div class="intro-text">
+                SHREE GANESHA
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MAIN TEMPLE
+    ========================================= -->
+
+    <main class="temple">
+
+        <div class="temple-light"></div>
+
+
+        <!-- Temple Arch -->
+
+        <div class="arch">
+            <div class="arch-inner"></div>
+        </div>
+
+
+        <!-- Background Smoke -->
+
+        <div class="smoke one"></div>
+        <div class="smoke two"></div>
+
+
+        <!-- Particles -->
+
+        <div class="particles">
+
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+
+        </div>
+
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div class="header-small">
+                DIVINE DARSHAN
+            </div>
+
+            <h1>
+                SHREE GANESHA
+            </h1>
+
+            <div class="header-line"></div>
+
+        </header>
+
+
+        <!-- Ganesha -->
+
+        <div class="ganesha-area">
+
+            <div class="ganesha">
+
+                <div class="crown"></div>
+
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+
+                <div class="head">
+
+                    <div class="tilak">ॐ</div>
+
+                    <div class="brow left"></div>
+                    <div class="brow right"></div>
+
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+
+                    <div class="tusk left"></div>
+                    <div class="tusk right"></div>
+
+                    <div class="trunk"></div>
+
+                </div>
+
+                <div class="body">
+
+                    <div class="belly"></div>
+
+                </div>
+
+                <div class="arm left"></div>
+                <div class="arm right"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Diya -->
+
+        <div class="diya">
+
+            <div class="flame"></div>
+
+        </div>
+
+
+        <!-- Flowers -->
+
+        <div class="flowers"></div>
+
+
+        <!-- Temple Doors -->
+
+        <div class="doors" id="doors">
+
+            <div class="door left"></div>
+            <div class="door right"></div>
+
+        </div>
+
+
+        <!-- Button -->
+
+        <div class="darshan">
+
+            <button id="darshanButton">
+                ENTER DARSHAN
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const intro = document.getElementById("intro");
+        const doors = document.getElementById("doors");
+        const darshanButton = document.getElementById("darshanButton");
+
+        /*
+            INTRO SEQUENCE
+        */
+
+        window.addEventListener("load", () => {
+
+            setTimeout(() => {
+
+                intro.classList.add("hide");
+
+            }, 3000);
+
+
+            setTimeout(() => {
+
+                doors.classList.add("open");
+
+            }, 3500);
+
+        });
+
+
+        /*
+            ENTER DARSHAN
+        */
+
+        darshanButton.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: "smooth"
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

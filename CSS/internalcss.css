@@ -1,0 +1,31 @@
+<style>
+        h2{
+            color: red;
+            background-color: blanchedalmond;
+        }
+        #para1{
+            color: aquamarine;
+            background-color: rgb(52, 6, 235);
+            text-align: center;
+        }
+        #para2{
+            color: yellow;
+            background-color: rgb(230, 15, 237);
+        }
+        .abc{
+            color: rgb(201, 9, 134);
+        }
+        /* group selector */
+        h1 , #para1, h2 {
+            text-align: center;
+        }
+
+        /* Universal Selector  */
+        *{
+            border-style: solid;
+            border-color: rgb(199, 46, 59);
+        }
+        /*Attribute Selector */
+        input[]{
+        }
+</style>

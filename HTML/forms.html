@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Demo on Forms</h1>
+    <form method="post" action="./Screenshot 2026-08-13 182016.png" target="_blank">
+        <fieldset>
+            <legend align="center" >login details</legend>
+        <label>Username : </label>
+        <input type="text"
+            name="fname"
+            placeholder="Enter First Name">
+
+            <input type="text"
+               name="lname"
+               placeholder="Enter Last Name">
+        </fieldset>
+
+               <br><br>
+
+               <label>Email Address</label>
+               <input type="email" name="mail"
+                 placeholder="Enter Email Address">
+
+                 <label>Password :</label>
+                 <input type="Password" name="pswd"
+                  placeholder="Enter Password">
+
+                  <br><br>
+
+                  <label>Contact Number :</label>
+                  <input type="tel" name="Contact"
+                     pattern="[6-9]{1}[0-9]{9}"
+                     placeholder="Enter Contact Number">
+
+
+                     <label>Age :</label>
+                     <input type="number" name="age" min="0" max="99"
+                     
+                     placeholder="Age">
+
+
+                     <input type="range" name-="count"
+                      min="0" max="20" value="0">
+
+
+                      <br><br>
+
+                      <label>Date & Time :</label>
+                      <input type="date" name="dob">
+                      <input type="time" name="time">
+                      <input type="datetime-local" name="date-time">
+                      <input type="month" name="mnth">
+                      <input type="week" name="week">
+
+                      <br><br>
+
+                      <label>Gender</label>
+
+                      <label for="m">male</label>
+                      <input type="radio" name="gender" value="male" id="m">
+
+                      <label for="f">female</label>
+                      <input type="radio" name="gender" value="female" id="f">
+
+                    <label for="o">others</label>
+                    <input type="radio" name="gender" value="others" id="o">
+
+
+        
+
+        <br><br>
+        <label>Languages</label>
+        <input type="checkbox" name="languages" value="English" >
+        <input type="checkbox" >
+        <input type="checkbox" ><br><br>
+        <label >Place :</label>
+        <select name="Place">
+            <option value="">---select place---</option>
+            <option value="goa" >goa</option>
+            <option value="mys">mysore</option>
+            <option value="thy">thailand</option>
+            <option value="bali">bali</option>
+            <option value="mldvs">Maldives</option>
+        </select><br><br>
+        <input type="color" name="colorvalue">
+        <input type="file" name="filename"><br><br>
+        <label >SearchField :</label>
+        <input type="search" name="SearchData" placeholder="search something... here">
+        <label >Enter url : </label>
+        <br><br>
+        <label >Comment box :</label>
+        
+        <textarea name="comment" placeholder="Comment Box" rows="5" cols="50"></textarea>
+        <br><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

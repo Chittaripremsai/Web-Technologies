@@ -1,0 +1,21 @@
+#image1{
+    display: block;
+    margin: auto;
+    height: 200px;
+    width: 350px;
+
+    /*filter: blur(10px);
+    filter:brightness(50%);
+    filter: saturate(200%);*/
+    filter: opacity(0.5);
+}
+
+#image2{
+    display: block;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    filter: drop-shadow(10px 10px 5px red);
+
+    
+}

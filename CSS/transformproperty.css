@@ -1,0 +1,16 @@
+.img{
+    border: solid 2px black;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    background: url(./images/7bb16af88d1c37a05f014714b97ed727.png) no-repeat center/cover;
+
+   /* transform: rotate(45deg);*/
+
+   /* transform: scale(2);*/
+
+    transform: skew(-30deg);
+
+    /*transform: rotateX('70deg');*/
+    /*transform: rotateY('70deg');*/
+}

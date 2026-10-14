@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+h1{
+    background: cyan;
+    text-align: center;
+    display: inline;
+    /*  display inline = is used to convert block level elements to inline level elements*/
+}
+
+b{
+    background: yellow;
+    display: block;/*  display inline = is used to convert block level elements to inline level elements*/
+    text-align: center;
+
+}
+button{
+
+    display: block;
+    margin: 20px auto;
+
+    width: 100px;
+    padding: 20px 40px;
+
+}
+a{
+    display: block;
+    text-align: center;
+
+}
+.box{
+    border: solid  1px black;
+    height: 150px;
+    width: 150px;
+    background: skyblue;
+    margin: auto;
+    display: flex; /*  " with out display:flex; justify-content & align-items won't work "*/
+    /*flex()  IT is used to convert all child elements to inline elements*/
+    justify-content: center;
+    align-items: center;
+
+}

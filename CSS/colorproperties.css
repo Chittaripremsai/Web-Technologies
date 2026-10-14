@@ -1,0 +1,22 @@
+h1{
+    color: rgb(229, 30, 30) ;
+    text-align: center;
+}
+
+h2{
+    text-align: end;
+
+}
+
+#hexa{
+    color: #000000;
+    background: bisque;
+}
+
+#hexacode{
+    color: white;
+    background-color: black;
+}
+body{
+    background-image: url("./images/133872246114466799.jpg") ;
+}

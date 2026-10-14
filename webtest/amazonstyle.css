@@ -1,0 +1,208 @@
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+    font-family: Arial, sans-serif;
+    }
+
+    .main {
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #ff5200;
+    color: white;
+    padding: 38px 10%;
+    }
+
+    .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+    .logo {
+    width: 195px;
+    }
+
+    .nav-items {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    }
+
+    .nav-items a {
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    }
+
+    .app-bn,
+    .sign-bn {
+    padding: 20px 25px;
+    border-radius: 16px;
+    }
+
+    .app-bn {
+    border: 1px solid white;
+    }
+
+    .sign-bn {
+    min-width: 160px;
+    text-align: center;
+    background: black;
+    }
+
+    .content {
+    padding-top: 120px;
+    text-align: center;
+    }
+
+    .content h1 {
+    font-size: 55px;
+    line-height: 1.25;
+    margin-bottom: 32px;
+    }
+
+    .boxes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    }
+
+    .location-box,
+    .search-box {
+    height: 74px;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    border-radius: 18px;
+    background: white;
+    }
+
+    .location-box {
+    width: 385px;
+    }
+
+    .search-box {
+    width: 605px;
+    }
+
+    .location-box input,
+    .search-box input {
+    flex: 1;
+    margin: 0 14px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    }
+
+    .cards {
+    display: flex;
+    gap: 65px;
+    margin-top: 72px;
+    }
+
+    .card {
+    width: 30.33%;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    padding: 36px 30px;
+    border-radius: 45px 45px 0 0;
+    background: white;
+    color: #3d3d43;
+    }
+
+    .card h2 {
+    font-size: 40px;
+    }
+
+    .card p {
+    margin: 10px 0 15px;
+    color: #888;
+    font-size: 25px;
+    }
+
+    .card > span {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 18px;
+    background: #fff2ec;
+    color: #ff5200;
+    font-weight: bold;
+    }
+
+    .emoji {
+    position: absolute;
+    right: 15px;
+    bottom: -30px;
+    font-size: 145px;
+    }
+
+    .art {
+    position: absolute;
+    pointer-events: none;
+    }
+
+    .sidepic-left {
+    width: 330px;
+    top: 145px;
+    left: -55px;
+    }
+
+    .sidepic-right {
+    width: 310px;
+    top: 145px;
+    right: 45px;
+    }
+
+    @media (max-width: 900px) {
+    .main {
+        padding: 30px;
+    }
+
+    .content h1 {
+        font-size: 42px;
+    }
+
+    .cards {
+        gap: 20px;
+    }
+
+    .nav-items a:not(.app-bn):not(.sign-bn) {
+        display: none;
+    }
+    }
+
+    @media (max-width: 600px) {
+    .boxes,
+    .cards {
+        flex-direction: column;
+    }
+
+    .location-box,
+    .search-box,
+    .card {
+        width: 100%;
+    }
+
+    .content h1 {
+        font-size: 32px;
+    }
+
+    .art {
+        display: none;
+    }
+
+    .nav-items {
+        gap: 10px;
+    }
+
+    .app-bn {
+        display: none;
+    }
+    }

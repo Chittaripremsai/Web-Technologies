@@ -1,0 +1,89 @@
+*{
+    margin: 0;padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+
+}
+h1{
+    text-align: center;
+    background-image: linear-gradient(orange,green);
+    color: transparent;
+    background-clip: text;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5vh auto;
+
+}
+.box{
+    border: solid 2px black;
+    height: 150px;
+    width: 150px;
+    box-shadow: 5px 5px 5px black;
+
+}
+.lg1{
+    background-image: linear-gradient(red,black,blue );
+
+    /* to bottom(defualt)/ to top/ to left/ to right/ to top left/
+    to top right/ to bottom left/ to bottom right */
+}
+.lg2{
+    background-image: linear-gradient(to bottom left,red,yellow,green);
+}
+
+.lg3{
+    background-image: linear-gradient(to top left,transparent 50%,blue 50% );
+    transform: rotate(45deg);
+    border: none;
+    box-shadow: none;
+    filter: drop-shadow(5px 5px 5px black); 
+}
+
+.rg1{
+    background-image: radial-gradient(red,yellow,black);
+}
+.rg2{
+    background-image: radial-gradient(circle at top left,blue,white,black);
+}
+.rg3{
+    background-image: radial-gradient(circle at bottom,red 50%,yellow 50%,orange);
+}
+
+.cg1{
+    background: conic-gradient(red,yellow,black);
+}
+.cg2{
+    background: conic-gradient(red,yellow,green,blue,black,red);
+}
+
+
+.rlg1{
+    background: repeating-linear-gradient(blue , black 20%);
+}
+.rrg2{
+    background:repeating-radial-gradient(blue,black 20%)
+}
+.rcg3{
+    background: repeating-conic-gradient(blue,black 25%);
+}
+
+h3{
+    text-align: center;
+    background: rgba(234, 103, 103, 0.769);
+    color: white;
+    /* opacity: .5; */
+}
+
+
+.rg3{
+    background: repeating-conic-gradient(blue, black 25%);
+}
+
+.c1{
+    background: linear-gradient(to bottom, orange 50%, green 50%);
+    clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+    border: none;
+    box-shadow: 5px 5px 5px black;
+}

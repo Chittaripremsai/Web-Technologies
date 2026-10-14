@@ -1,0 +1,17 @@
+/* desendent Selector combinator */
+div p{
+    color: red;
+
+}
+/* child selector combinators */
+div > p{
+    background: yellow;
+}
+/* Adjacent sibling Combinators */
+div + p{
+    text-align: center;
+}
+/* all the sibling , General Sibling Combinator */
+div ~ p{
+    background: cyan;
+}

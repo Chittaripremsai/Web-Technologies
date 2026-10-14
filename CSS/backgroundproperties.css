@@ -1,0 +1,22 @@
+body{
+/*background color: blue; */
+
+    background-image: url("./images/images.jpg");
+    background-repeat: no-repeat;
+    /* repeat (defualt) /no-repeat/ bottom right /repeat-y */
+    background-position: top;
+    /* top left (defualt) /top right / right / left / bottom left / bottom right / center top / bottom*/
+
+    background-size: cover;
+    /* auto(defult)  / contain / cover */
+    background-attachment: fixed;
+    /* scroll defualt: both bg-image & content  are scrolling*/
+    /* fixed : bg-image is fixed and content is scrolling*/ 
+
+
+
+
+
+
+
+}

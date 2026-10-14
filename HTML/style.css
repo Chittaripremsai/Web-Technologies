@@ -1,0 +1,36 @@
+#flag{
+    border:none;
+    height: 250px;
+    width: 500px;
+    margin: 10vh auto;
+    background: linear-gradient(orange, white, green);
+    box-shadow: 5px 5px 5px gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: blur(10px);
+    
+}
+
+#flag:hover{
+    animation: flaotb5s infinite linear;
+    filter: blur(0px);
+}
+
+#circle{
+    border: solid 1px black;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: repeating-conic-gradient(blue , white 5%);
+    animation: rotating 10s infinite linear;
+}
+
+@keyframes rotating {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+@keyframes float {
+    50%{transform: scale(1.2)}
+}

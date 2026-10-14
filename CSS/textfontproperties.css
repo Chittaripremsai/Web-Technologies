@@ -1,0 +1,51 @@
+h1{
+    text-align: center;
+    letter-spacing: 5px; /* space between letters */
+    word-spacing: 15px;   /* sapce between words */
+    
+    text-decoration-line: underline;
+
+    text-decoration-style: wavy;
+
+    text-decoration-thickness: inherit;
+
+    text-shadow: red 5px 10px 10px;  /* here there are three values as px they represent as x axis, y axis, */
+}
+h2{
+    text-shadow: blue 5px 10px 10px ;
+    text-align: center;
+
+}
+.para1{
+    width: 70%;
+    margin: auto;
+
+    text-align: justify;
+    /* left(defualt) / right /left / center / justify */
+    line-height: 20px;  /* space b/wn the line */ 
+    word-spacing: 2px;  /* word spacing*/
+    text-transform: capitalize;  
+    /* lower case / upper case / captalize */
+
+    text-indent: 50px;
+
+    /* */
+    
+    text-decoration: underline   dashed 2px blueviolet ;
+    
+
+}
+
+.para2{
+    width: 70%;
+    margin:auto;
+    
+    text-align: justify;
+
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+
+    font-variant: small-caps ;
+}

@@ -1,0 +1,118 @@
+h2{
+
+    text-align: center;
+    text-decoration: double;
+}
+.square{
+    border: solid 2px blue;
+    height: 100px;
+    width: 100px;
+    background: red
+} 
+.rect{
+    border: solid 2px red;
+    height: 100px;
+    width: 150px;
+    background: blue;
+
+}
+.circle{
+    border: solid 2px greenyellow;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: green
+
+}
+.oval{
+    border: solid 2px red;
+    height: 100px;
+    width: 200px;
+    border-radius: 50%;
+    background: violet
+}
+.leaf{
+    border: solid 2px ;
+    height: 120px;
+    width: 220px;
+    border-radius: 100% 0%;    /* (or)   border-top-left-radius: 100%;
+    border-bottom-right-radius: 100%;*/
+    background: cyan
+}
+
+.cube {
+    height: 150px;
+    width: 150px;
+
+    border: 30px solid;
+    border-top-color: red;
+    border-right-color: yellow;
+    border-bottom-color: green;
+    border-left-color: blue;
+
+    box-sizing: border-box;
+}
+.ring{
+    height: 150px;
+    width: 150px;
+
+    border-radius: 50%;
+    border: 40px solid;
+    
+    border-top-color: yellow;
+    border-left-color: red;
+    border-right-color: green;
+    border-bottom-color: blue;
+}
+.triangle{
+    border: 1px solid ;
+    height: 0px;
+    width: 0px;
+
+    border-top:solid 100px white;
+    border-right: solid 100px white;
+    border-bottom: solid 100px blue;
+    border-left: solid 100px white;
+
+}
+
+.right-triangle{
+    border: 1px solid ;
+    height: 0px;
+    width: 0px;
+
+    border-top:solid 100px white;
+    border-right: solid 100px purple;
+    border-bottom: solid 100px purple;
+    border-left: solid 100px white;    
+
+}
+.chat-symbol{
+    
+    border: 1px solid ;
+    height: 150px;
+    width: 150px;
+    border-radius: 100% 0% 100% 100%;  /* defualt will be (topleft) ,right,bottom,left*/
+
+    background-color: darkorange;
+
+
+}
+.container{
+    border: solid 1px black;
+    height: 400px;
+    width: 400px;
+    overflow: scroll;
+    text-align: justify;
+    box-shadow: 10px 10px 5px grey;
+
+}
+
+.box{
+    text-align: center;
+    font-size: 50px;
+    
+    background: url('./images/images.jpg') no-repeat center/cover;
+    color: transparent;
+    background-clip: text;
+}

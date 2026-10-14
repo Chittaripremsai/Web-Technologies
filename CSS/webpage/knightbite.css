@@ -1,0 +1,766 @@
+/* =========================================
+   1. RESET & BASE
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding/border included inside width, easier maths */
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #08080B;   /* near-black, like the real site */
+  color: #F5F5F0;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;      /* centers the container */
+  padding: 0 24px;
+}
+
+.eyebrow {
+  color: #E5484D;                 /* accent red */
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.eyebrow--light { color: #ffb3b3; }
+
+.section { padding: 100px 0; }
+
+.section__title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  max-width: 700px;
+}
+
+.section__text {
+  color: #B8B8B8;
+  max-width: 560px;
+  margin-bottom: 24px;
+}
+
+
+/* =========================================
+   2. BUTTONS  (hover + transition)
+   ========================================= */
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;   /* smooth hover */
+  margin: 4px 6px 4px 0;
+}
+
+.btn--primary {
+  background: #E5484D;
+  color: #fff;
+}
+
+/* darker + lifts up slightly on hover */
+.btn--primary:hover {
+  background: #c93a3f;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(229, 72, 77, 0.35);
+}
+
+.btn--large { padding: 18px 34px; font-size: 15px; }
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+.btn--ghost:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+
+/* =========================================
+   3. HEADER
+   ========================================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(8,8,11,0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+/* underline that grows in on hover, built with ::after */
+.nav__link {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  color: #D8D8D8;
+  padding-bottom: 4px;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #E5484D;
+  transition: width 0.3s ease;
+}
+
+.nav__link:hover::after,
+.nav__link.active::after {
+  width: 100%;
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: #fff;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pill {
+  font-size: 12px;
+  color: #B8B8B8;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 14px;
+  border-radius: 30px;
+}
+
+
+/* =========================================
+   4. HERO  (background image + overlay via ::before-style layer)
+   ========================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;                 /* top/right/bottom/left: 0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* dark gradient on top of the photo so text stays readable */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,8,11,0.6) 0%, rgba(8,8,11,0.85) 100%);
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-top: 90px;
+  max-width: 720px;
+  animation: fadeInUp 1s ease both; /* simple entrance animation */
+}
+
+.hero__title {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero__text {
+  color: #CFCFCF;
+  font-size: 17px;
+  max-width: 540px;
+  margin-bottom: 28px;
+}
+
+.hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.hero__stats {
+  display: flex;
+  gap: 50px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat__num {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat__label {
+  font-size: 13px;
+  color: #999;
+}
+
+/* keyframe used above */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================================
+   5. MARQUEE  (infinite scrolling strip)
+   ========================================= */
+.marquee {
+  background: #E5484D;
+  overflow: hidden;
+  padding: 16px 0;
+  white-space: nowrap;
+}
+
+.marquee__track {
+  display: inline-flex;
+  gap: 40px;
+  animation: scrollLeft 25s linear infinite;
+}
+
+.marquee__track span {
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #08080B;
+}
+
+/* adds a dot after every word using ::after, so we don't need extra HTML */
+.marquee__track span::after {
+  content: "•";
+  margin-left: 40px;
+  opacity: 0.6;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* moves exactly one full (duplicated) set */
+}
+
+
+/* =========================================
+   6. FEATURES
+   ========================================= */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  position: relative;
+  background: #121216;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 30px 24px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+/* subtle red glow that fades in behind the card on hover, via ::before */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  right: -30%;
+  width: 160px;
+  height: 160px;
+  background: #E5484D;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(229,72,77,0.5);
+}
+
+.feature-card:hover::before {
+  opacity: 0.35;
+}
+
+.feature-card__num {
+  display: inline-block;
+  font-size: 13px;
+  color: #E5484D;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.feature-card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.feature-card p {
+  color: #ADADAD;
+  font-size: 14px;
+  position: relative;
+}
+
+
+/* =========================================
+   7. STORY
+   ========================================= */
+.story__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.story__img-wrap {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.story__img-wrap img {
+  border-radius: 18px;
+  transition: transform 0.5s ease;
+}
+
+/* zoom the photo slightly when the wrapper is hovered */
+.story__img-wrap:hover img {
+  transform: scale(1.06);
+}
+
+.story__badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(8,8,11,0.75);
+  backdrop-filter: blur(4px);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+}
+
+.story__stats {
+  display: flex;
+  gap: 50px;
+  margin: 20px 0 24px;
+}
+
+/* arrow link that slides right on hover, built with ::after */
+.link-arrow {
+  position: relative;
+  font-weight: 600;
+  color: #fff;
+  padding-right: 22px;
+}
+
+.link-arrow::after {
+  content: "→";
+  position: absolute;
+  right: 0;
+  transition: right 0.3s ease;
+}
+
+.link-arrow:hover::after {
+  right: -8px;
+}
+
+
+/* =========================================
+   8. QUOTE BANNER
+   ========================================= */
+.quote {
+  position: relative;
+  padding: 140px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.quote__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quote__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8,8,11,0.75);
+}
+
+.quote .container {
+  position: relative;
+  z-index: 2;
+}
+
+.quote__text {
+  font-size: 46px;
+  font-weight: 700;
+}
+
+.quote__text em {
+  font-style: italic;
+  color: #E5484D;
+}
+
+.quote__sub {
+  color: #CFCFCF;
+  max-width: 480px;
+  margin: 16px auto 0;
+}
+
+
+/* =========================================
+   9. STEPS
+   ========================================= */
+.steps__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.step {
+  border-top: 2px solid rgba(255,255,255,0.15);
+  padding-top: 20px;
+  transition: border-color 0.3s ease;
+}
+
+.step:hover {
+  border-color: #E5484D;
+}
+
+.step__tag {
+  display: inline-block;
+  font-size: 13px;
+  color: #E5484D;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.step h3 { margin-bottom: 10px; font-size: 20px; }
+.step p { color: #ADADAD; font-size: 14px; }
+
+
+/* =========================================
+   10. APP SECTION
+   ========================================= */
+.app__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.app__list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 14px;
+  color: #D8D8D8;
+  font-size: 15px;
+}
+
+/* checkmark drawn with ::before, no icon files needed */
+.app__list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #E5484D;
+  font-weight: 700;
+}
+
+.app__images {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.app__img {
+  width: 240px;
+  border-radius: 24px;
+  border: 6px solid #121216;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease;
+}
+
+.app__img--front {
+  position: relative;
+  z-index: 2;
+}
+
+.app__img--back {
+  position: absolute;
+  left: 90px;
+  top: 40px;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.app__images:hover .app__img--front {
+  transform: translateY(-10px) rotate(-3deg);
+}
+
+.app__images:hover .app__img--back {
+  transform: translateY(-10px) rotate(3deg);
+}
+
+
+/* =========================================
+   11. GALLERY
+   ========================================= */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* red tint that fades in over the photo on hover, via ::after */
+.gallery__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(229,72,77,0.35);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery__item:hover::after {
+  opacity: 1;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.1);
+}
+
+
+/* =========================================
+   12. CTA BANNER
+   ========================================= */
+.cta {
+  position: relative;
+  padding: 140px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8,8,11,0.8);
+}
+
+.cta .container {
+  position: relative;
+  z-index: 2;
+}
+
+.cta__title {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.cta__sub {
+  color: #CFCFCF;
+  max-width: 460px;
+  margin: 0 auto 30px;
+}
+
+.cta .hero__buttons {
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   13. FOOTER
+   ========================================= */
+.footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 70px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.3fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+.footer__brand p {
+  color: #999;
+  font-size: 14px;
+  margin: 14px 0 20px;
+  max-width: 260px;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer__socials a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.footer__socials a:hover {
+  background: #E5484D;
+  border-color: #E5484D;
+  transform: translateY(-3px);
+}
+
+.footer__col h4 {
+  font-size: 14px;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.footer__col a {
+  display: block;
+  color: #999;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.footer__col a:hover {
+  color: #fff;
+  padding-left: 4px; /* tiny nudge right on hover */
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #777;
+  font-size: 13px;
+}
+
+.footer__bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__bottom-links a:hover {
+  color: #fff;
+}
+
+
+/* =========================================
+   14. RESPONSIVE (basic)
+   ========================================= */
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .hero__title { font-size: 42px; }
+  .feature-grid,
+  .steps__grid { grid-template-columns: 1fr 1fr; }
+  .story__grid,
+  .app__grid { grid-template-columns: 1fr; }
+  .gallery__grid { grid-template-columns: repeat(3, 1fr); }
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .feature-grid,
+  .steps__grid,
+  .gallery__grid { grid-template-columns: 1fr 1fr; }
+  .hero__title { font-size: 34px; }
+}

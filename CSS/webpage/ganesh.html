@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CSS Ganesha</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle, #5b270e 0%, #241006 45%, #090504 100%);
+    overflow: hidden;
+}
+
+/* MAIN */
+
+.ganesha {
+    position: relative;
+    width: 600px;
+    height: 700px;
+}
+
+/* GOLDEN HALO */
+
+.halo {
+    position: absolute;
+    width: 570px;
+    height: 570px;
+    left: 15px;
+    top: 50px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,215,100,.35),
+        rgba(255,150,30,.12) 55%,
+        transparent 70%);
+
+    box-shadow:
+        0 0 40px #ffb52e,
+        0 0 90px rgba(255,170,40,.5);
+}
+
+/* CROWN */
+
+.crown {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    left: 150px;
+    top: 5px;
+
+    background:
+        linear-gradient(90deg,
+        #8c4d05,
+        #ffd65a,
+        #a96508,
+        #ffe27b,
+        #8a4703);
+
+    border-radius: 150px 150px 25px 25px;
+
+    border: 8px solid #d89419;
+
+    box-shadow:
+        inset 0 8px 15px rgba(255,255,255,.5),
+        0 8px 20px #000;
+}
+
+/* CROWN TOP */
+
+.crown::before {
+    content: "";
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    left: 97px;
+    top: -65px;
+
+    background:
+        linear-gradient(135deg,#ffd85c,#9b5704);
+
+    clip-path: polygon(
+        50% 0,
+        100% 100%,
+        0 100%
+    );
+
+    border: 5px solid #e2a32b;
+}
+
+/* CROWN JEWELS */
+
+.jewel {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 30% 25%,
+        #fff,
+        #e52525 15%,
+        #850000 70%);
+
+    border: 3px solid #ffd85a;
+
+    box-shadow: 0 0 10px #ffb52e;
+}
+
+.j1 {
+    left: 135px;
+    top: 35px;
+}
+
+.j2 {
+    left: 60px;
+    top: 70px;
+}
+
+.j3 {
+    right: 60px;
+    top: 70px;
+}
+
+/* EARS */
+
+.ear {
+    position: absolute;
+
+    width: 210px;
+    height: 300px;
+
+    top: 190px;
+
+    background:
+        radial-gradient(ellipse at center,
+        #f4a06b,
+        #c75c32 65%,
+        #783016);
+
+    border: 7px solid #b34d27;
+
+    box-shadow:
+        inset 0 0 35px rgba(80,20,5,.5),
+        0 15px 25px rgba(0,0,0,.5);
+}
+
+.left-ear {
+    left: 0;
+
+    border-radius: 70% 30% 65% 35%;
+
+    transform: rotate(-12deg);
+}
+
+.right-ear {
+    right: 0;
+
+    border-radius: 30% 70% 35% 65%;
+
+    transform: rotate(12deg);
+}
+
+/* EAR INNER */
+
+.ear::before {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 220px;
+
+    left: 35px;
+    top: 35px;
+
+    border-radius: 60%;
+
+    background:
+        radial-gradient(ellipse,
+        #ffb17c,
+        #d65c31 70%,
+        transparent);
+
+    box-shadow: inset 0 0 20px #8c321a;
+}
+
+/* FACE */
+
+.face {
+    position: absolute;
+
+    width: 390px;
+    height: 430px;
+
+    left: 105px;
+    top: 145px;
+
+    border-radius: 48% 48% 45% 45%;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #ffe0ad 0%,
+            #f5b579 35%,
+            #d87943 75%,
+            #a84625 100%
+        );
+
+    border: 6px solid #b65a2d;
+
+    box-shadow:
+        inset 15px 0 30px rgba(255,255,255,.25),
+        inset -20px 0 35px rgba(100,25,5,.35),
+        0 20px 40px rgba(0,0,0,.6);
+}
+
+/* FOREHEAD */
+
+.forehead {
+    position: absolute;
+
+    width: 170px;
+    height: 100px;
+
+    left: 105px;
+    top: 25px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,255,255,.25),
+        transparent 65%);
+}
+
+/* EYES */
+
+.eye {
+    position: absolute;
+
+    width: 105px;
+    height: 60px;
+
+    top: 135px;
+
+    background: #f8c28d;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 -5px 0 #6e2d18,
+        0 5px 12px rgba(0,0,0,.3);
+}
+
+.left-eye {
+    left: 45px;
+}
+
+.right-eye {
+    right: 45px;
+}
+
+/* EYE BALL */
+
+.eye::before {
+    content: "";
+
+    position: absolute;
+
+    width: 38px;
+    height: 38px;
+
+    top: 11px;
+    left: 34px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 35% 30%,
+        white 0 8%,
+        #5a250f 10%,
+        #180805 65%,
+        #000);
+
+    box-shadow: 0 0 8px #4a1708;
+}
+
+/* EYEBROWS */
+
+.eyebrow {
+    position: absolute;
+
+    width: 115px;
+    height: 20px;
+
+    top: 105px;
+
+    border-top: 10px solid #51200e;
+
+    border-radius: 50%;
+}
+
+.left-brow {
+    left: 38px;
+    transform: rotate(-8deg);
+}
+
+.right-brow {
+    right: 38px;
+    transform: rotate(8deg);
+}
+
+/* TILAK */
+
+.tilak {
+    position: absolute;
+
+    width: 65px;
+    height: 70px;
+
+    top: 35px;
+    left: 157px;
+}
+
+.tilak::before,
+.tilak::after {
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+    height: 55px;
+
+    background: #c91515;
+
+    border-radius: 50%;
+}
+
+.tilak::before {
+    left: 12px;
+    transform: rotate(8deg);
+}
+
+.tilak::after {
+    right: 12px;
+    transform: rotate(-8deg);
+}
+
+.tilak span {
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    background: #e7a000;
+
+    border-radius: 50%;
+
+    left: 25px;
+    top: 25px;
+
+    box-shadow: 0 0 8px #ffcc33;
+}
+
+/* NOSE / TRUNK */
+
+.trunk {
+    position: absolute;
+
+    width: 180px;
+    height: 300px;
+
+    left: 105px;
+    top: 170px;
+
+    border-radius:
+        40% 40% 55% 55% /
+        30% 30% 70% 70%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c86435,
+            #f3a26b 35%,
+            #ffd09b 55%,
+            #d97842
+        );
+
+    box-shadow:
+        inset 12px 0 18px rgba(255,255,255,.3),
+        inset -15px 0 25px rgba(100,30,10,.35),
+        8px 15px 25px rgba(0,0,0,.35);
+
+    z-index: 5;
+}
+
+/* TRUNK CURL */
+
+.trunk::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 110px;
+
+    right: -30px;
+    bottom: -20px;
+
+    border: 35px solid #e9955d;
+
+    border-left-color: transparent;
+    border-radius: 50%;
+
+    transform: rotate(25deg);
+}
+
+/* TRUNK DECORATION */
+
+.trunk::after {
+    content: "❈  ❈  ❈";
+
+    position: absolute;
+
+    color: #b51c18;
+
+    font-size: 20px;
+
+    left: 65px;
+    top: 100px;
+
+    writing-mode: vertical-rl;
+
+    opacity: .8;
+}
+
+/* TUSKS */
+
+.tusk {
+    position: absolute;
+
+    width: 70px;
+    height: 120px;
+
+    background:
+        linear-gradient(90deg,#fff,#e8d8b5);
+
+    border-radius: 80% 20% 80% 30%;
+
+    z-index: 4;
+
+    box-shadow:
+        5px 10px 12px rgba(0,0,0,.3);
+}
+
+.left-tusk {
+    left: 65px;
+    top: 330px;
+
+    transform: rotate(35deg);
+}
+
+.right-tusk {
+    right: 65px;
+    top: 330px;
+
+    transform: rotate(-35deg);
+}
+
+/* CHEEKS */
+
+.cheek {
+    position: absolute;
+
+    width: 100px;
+    height: 75px;
+
+    top: 245px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,180,130,.6),
+        transparent 70%);
+}
+
+.left-cheek {
+    left: 25px;
+}
+
+.right-cheek {
+    right: 25px;
+}
+
+/* EARRINGS */
+
+.earring {
+    position: absolute;
+
+    width: 55px;
+    height: 75px;
+
+    top: 330px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+        #fff1a0 0 10%,
+        #e0a01b 15%,
+        #8d4b03 60%,
+        #ffd95c);
+
+    border: 5px solid #ffd45a;
+
+    box-shadow: 0 0 15px #ffb52e;
+
+    z-index: 8;
+}
+
+.left-earring {
+    left: 80px;
+}
+
+.right-earring {
+    right: 80px;
+}
+
+/* SMALL GOLD DOTS */
+
+.dot {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: #ffd45a;
+
+    box-shadow: 0 0 8px #ffb52e;
+}
+
+.d1 { left: 120px; top: 285px; }
+.d2 { left: 145px; top: 300px; }
+.d3 { right: 120px; top: 285px; }
+.d4 { right: 145px; top: 300px; }
+
+/* GLOW ANIMATION */
+
+.halo {
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+
+    from {
+        opacity: .75;
+        filter: brightness(.9);
+    }
+
+    to {
+        opacity: 1;
+        filter: brightness(1.25);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="ganesha">
+
+    <div class="halo"></div>
+
+    <div class="crown">
+        <div class="jewel j1"></div>
+        <div class="jewel j2"></div>
+        <div class="jewel j3"></div>
+    </div>
+
+    <div class="ear left-ear"></div>
+    <div class="ear right-ear"></div>
+
+    <div class="face">
+
+        <div class="forehead"></div>
+
+        <div class="tilak">
+            <span></span>
+        </div>
+
+        <div class="eyebrow left-brow"></div>
+        <div class="eyebrow right-brow"></div>
+
+        <div class="eye left-eye"></div>
+        <div class="eye right-eye"></div>
+
+        <div class="cheek left-cheek"></div>
+        <div class="cheek right-cheek"></div>
+
+        <div class="trunk"></div>
+
+        <div class="tusk left-tusk"></div>
+        <div class="tusk right-tusk"></div>
+
+    </div>
+
+    <div class="earring left-earring"></div>
+    <div class="earring right-earring"></div>
+
+    <div class="dot d1"></div>
+    <div class="dot d2"></div>
+    <div class="dot d3"></div>
+    <div class="dot d4"></div>
+
+</div>
+
+</body>
+</html>
